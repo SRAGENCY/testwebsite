@@ -1,1305 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Zero | Your money your planet</title>
-  <meta name="description" content="The sustainable alternative to banking with free money app, personal account, debit Mastercard, GreenScore and more." />
-  <meta name="robots" content="noindex,nofollow" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html, body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.5;
-      color: #0F172A;
-      background: #F7FAF8;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Avantisea | Unlock Talent. Unleash Potential.</title>
+<meta content="Avantisea helps young people and employers meet through a fun, swipe-based experience. Fast, fair, and effortless." name="description"/>
+<style>
+    :root{
+      --primary:#1F4ED6;
+      --primary-hover:#163EA9;
+      --secondary:#10B981;
+      --bg:#FFFFFF;
+      --bg-alt:#F8FAFC;
+      --text:#111827;
+      --muted:#4B5563;
+      --border:#E5E7EB;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(17,24,39,0.08);
+      --container:1120px;
+      --gap:24px;
     }
 
-    /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #E2E8F0;
-      z-index: 40;
-      padding: 12px 0;
-    }
-    
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: #0F172A;
-      text-transform: lowercase;
-    }
-    
-    .nav-links {
-      display: none;
-      gap: 32px;
-      align-items: center;
-    }
-    
-    .nav-links a {
-      color: #475569;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-    
-    .nav-links a:hover {
-      color: #1C7F4E;
-    }
-    
-    .sign-up-btn {
-      background: #0F172A;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .sign-up-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
-    }
-    
-    @media (min-width: 768px) {
-      .nav-links { display: flex; }
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji}
+    img{max-width:100%;height:auto}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:100%;max-width:var(--container);margin-inline:auto;padding:0 20px}
+    .container.narrow{max-width:820px}
+    .center{text-align:center}
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#000;color:#fff;padding:8px 12px;border-radius:8px;z-index:10000}
 
-    /* Hero Section with Background Illustration */
-    .hero {
-      position: relative;
-      background: linear-gradient(180deg, #F7FAF8 0%, #E8F5E8 50%, #C6F7D0 100%);
-      min-height: 600px;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1400 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gradient1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23C6F7D0;stop-opacity:0.8'/%3E%3Cstop offset='100%25' style='stop-color:%2300B37E;stop-opacity:0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,300 Q350,200 700,280 T1400,250 L1400,600 L0,600 Z' fill='url(%23gradient1)'/%3E%3Cpath d='M0,400 Q350,350 700,380 T1400,360 L1400,600 L0,600 Z' fill='%2300B37E' opacity='0.1'/%3E%3C/svg%3E");
-      background-size: cover;
-      background-position: center bottom;
-      z-index: 1;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero-content {
-        grid-template-columns: 1fr 500px;
-        gap: 80px;
-        padding: 120px 24px 80px;
-      }
-    }
-    
-    .hero-text h1 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      color: #0F172A;
-    }
-    
-    .hero-text p {
-      font-size: 18px;
-      color: #475569;
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
-    
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    
-    .btn-primary {
-      background: #0F172A;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
-    }
-    
-    .trustpilot {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      font-size: 14px;
-      color: #475569;
-    }
-    
-    .stars {
-      color: #00B37E;
-      font-size: 16px;
-    }
-    
-    /* Hero Card */
-    .hero-card {
-      background: white;
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border: 1px solid #E2E8F0;
-      position: relative;
-    }
-    
-    .hero-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #0F172A;
-    }
-    
-    .hero-card p {
-      color: #475569;
-      margin-bottom: 16px;
-    }
-    
-    .new-badge {
-      display: inline-block;
-      background: #FFE4E6;
-      color: #DC2626;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-    }
+    .site-header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(12px);background:rgba(255,255,255,0.8);border-bottom:1px solid var(--border);z-index:1000}
+    .site-header .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:800;letter-spacing:0.2px}
+    .site-nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+    .site-nav a{padding:8px 10px;border-radius:10px}
+    .site-nav a:focus,.site-nav a:hover{background:var(--bg-alt);text-decoration:none}
 
-    /* Section Styles */
-    .section {
-      padding: 80px 0;
-    }
-    
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    .section-title {
-      font-size: clamp(24px, 3vw, 36px);
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0F172A;
-    }
-    
-    .section-subtitle {
-      font-size: 18px;
-      color: #475569;
-      text-align: center;
-      margin-bottom: 60px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
+    .actions{display:flex;gap:12px}
 
-    /* Climate Change Section */
-    .climate-section {
-      background: white;
-      text-align: center;
-    }
-    
-    .climate-section .highlight {
-      font-weight: 700;
-      color: #0F172A;
-      display: block;
-      margin-top: 16px;
-    }
-    
-    .certifications {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-    
-    .cert-badge {
-      width: 60px;
-      height: 60px;
-      background: #F1F5F9;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 12px;
-      color: #475569;
-    }
+    .hero{padding:80px 0;background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFF 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center}
+    .hero-copy h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 12px}
+    .subhead{color:var(--muted);margin:0 0 20px}
+    .cta-row{display:flex;gap:12px;margin:22px 0 4px}
+    .age-select{margin-top:18px}
+    .age-buttons{display:flex;gap:8px;flex-wrap:wrap}
 
-    /* Features Section */
-    .features-section {
-      background: #F8FAFC;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: #E8F5E8;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: #1C7F4E;
-      flex-shrink: 0;
-    }
-    
-    .feature-content h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #0F172A;
-    }
-    
-    .feature-content p {
-      font-size: 14px;
-      color: #475569;
-      margin: 0;
-    }
+    .hero-visual{height:360px;border-radius:20px;background:
+      radial-gradient(60% 60% at 30% 30%, rgba(31,78,214,0.25), transparent 60%),
+      radial-gradient(60% 60% at 70% 70%, rgba(16,185,129,0.25), transparent 60%),
+      linear-gradient(135deg,#EEF2FF 0%,#ECFEF3 100%);
+    box-shadow:var(--shadow)}
 
-    /* Carbon Projects Section */
-    .carbon-section {
-      background: linear-gradient(135deg, #00B37E, #1C7F4E);
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .carbon-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,300 Q350,200 700,280 T1400,250 L1400,0 L0,0 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
-      background-size: cover;
-      background-position: top;
-    }
-    
-    .carbon-section .container {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .carbon-section .section-title,
-    .carbon-section .section-subtitle {
-      color: white;
-    }
-    
-    .carbon-cta {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-    
-    .btn-white {
-      background: white;
-      color: #1C7F4E;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    
-    .btn-outline-white {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-      padding: 12px 26px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    
-    .btn-outline-white:hover {
-      background: white;
-      color: #1C7F4E;
-    }
-    
-    .app-preview {
-      margin-top: 40px;
-      text-align: left;
-    }
+    .section{padding:72px 0}
+    .section.alt{background:var(--bg-alt)}
+    .section-head{margin-bottom:26px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .card h3{margin-top:0}
 
-    /* Apple Pay & Google Pay Section */
-    .payment-methods {
-      background: white;
-    }
-    
-    .payment-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .payment-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-      }
-    }
-    
-    .payment-method h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #0F172A;
-    }
-    
-    .payment-method p {
-      font-size: 16px;
-      color: #475569;
-      margin-bottom: 24px;
-    }
-    
-    .payment-logos {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    
-    .payment-logos .logo-text {
-      font-size: 24px;
-      font-weight: 800;
-      text-transform: lowercase;
-    }
-    
-    .payment-logos .divider {
-      font-size: 24px;
-      color: #CBD5E1;
-    }
-    
-    .apple-pay {
-      color: #000;
-    }
-    
-    .google-pay {
-      color: #4285F4;
-    }
-    
-    .btn-secondary {
-      background: #F1F5F9;
-      color: #0F172A;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    
-    .phone-mockup {
-      max-width: 300px;
-      margin: 0 auto;
-    }
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+    .list ul{margin:0;padding-left:20px}
+    .checklist{margin:12px 0 0;padding-left:20px}
 
-    /* Join Movement Section */
-    .movement-section {
-      background: linear-gradient(180deg, #F7FAF8 0%, #E8F5E8 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .movement-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300B37E' opacity='0.1'%3E%3Cpath d='M50,300 Q100,280 150,300 T250,300 Q300,320 350,300 T450,300'/%3E%3Cpath d='M500,250 Q550,230 600,250 T700,250 Q750,270 800,250 T900,250'/%3E%3Cpath d='M950,280 Q1000,260 1050,280 T1150,280 Q1200,300 1250,280 T1350,280'/%3E%3C/g%3E%3C/svg%3E");
-      background-repeat: repeat-x;
-      background-position: center;
-    }
-    
-    .movement-section .container {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .movement-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .movement-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-      }
-    }
-    
-    .city-illustration {
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 600 300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='300' fill='%23C6F7D0'/%3E%3Cg fill='%2300B37E' opacity='0.6'%3E%3Crect x='50' y='200' width='40' height='80'/%3E%3Crect x='120' y='150' width='50' height='130'/%3E%3Crect x='200' y='180' width='45' height='100'/%3E%3Crect x='280' y='160' width='40' height='120'/%3E%3Crect x='350' y='140' width='55' height='140'/%3E%3Crect x='430' y='170' width='45' height='110'/%3E%3Crect x='500' y='190' width='40' height='90'/%3E%3C/g%3E%3Cg fill='%231C7F4E'%3E%3Ccircle cx='100' cy='250' r='20'/%3E%3Ccircle cx='300' cy='230' r='25'/%3E%3Ccircle cx='450' cy='240' r='22'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      border-radius: 16px;
-    }
+    .comparison{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+    .compare-card{border:1px solid var(--border);background:#fff;border-radius:var(--radius);padding:18px}
+    .compare-card.highlight{border-color:var(--primary);box-shadow:0 8px 24px rgba(31,78,214,0.12)}
+    .muted{color:var(--muted)}
 
-    /* Cards Section */
-    .cards-section {
-      background: white;
-    }
-    
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .cards-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-      }
-    }
-    
-    .cards-content h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #0F172A;
-    }
-    
-    .cards-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 32px 0;
-    }
-    
-    .cards-features li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      color: #475569;
-    }
-    
-    .cards-features li::before {
-      content: '✓';
-      color: #00B37E;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    
-    .card-selector {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    
-    .card-option {
-      padding: 12px 24px;
-      border: 2px solid #E2E8F0;
-      border-radius: 25px;
-      background: white;
-      color: #475569;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .card-option.active {
-      border-color: #1C7F4E;
-      background: #E8F5E8;
-      color: #1C7F4E;
-    }
-    
-    .card-preview {
-      display: flex;
-      gap: 16px;
-    }
-    
-    .card-mockup {
-      width: 200px;
-      height: 125px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 16px;
-      color: white;
-      font-weight: 600;
-      position: relative;
-    }
-    
-    .card-sea {
-      background: linear-gradient(135deg, #0EA5E9, #06B6D4);
-    }
-    
-    .card-land {
-      background: linear-gradient(135deg, #1C7F4E, #00B37E);
-    }
-    
-    .card-sky {
-      background: linear-gradient(135deg, #8B5CF6, #A855F7);
-    }
-    
-    .card-chip {
-      width: 24px;
-      height: 18px;
-      background: #FFD700;
-      border-radius: 4px;
-    }
-    
-    .card-logo {
-      font-size: 12px;
-      text-transform: lowercase;
-    }
-    
-    .mastercard-logo {
-      position: absolute;
-      bottom: 16px;
-      right: 16px;
-      width: 32px;
-      height: 20px;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23EB001B'/%3E%3Ccircle cx='22' cy='10' r='8' fill='%23F79E1B'/%3E%3Cpath d='M16,4 A8,8 0 0,0 16,16 A8,8 0 0,0 16,4 Z' fill='%23FF5F00'/%3E%3C/svg%3E");
-      background-size: contain;
-    }
+    .site-footer{border-top:1px solid var(--border);padding:36px 0;background:#fff}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
 
-    /* Green Score Section */
-    .greenscore-section {
-      background: linear-gradient(135deg, #C6F7D0, #A7F3D0);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .greenscore-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300B37E' opacity='0.2'%3E%3Cpath d='M0,200 Q350,100 700,180 T1400,150 L1400,400 L0,400 Z'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: cover;
-      background-position: bottom;
-    }
-    
-    .greenscore-section .container {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .greenscore-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .greenscore-grid {
-        grid-template-columns: 300px 1fr;
-        gap: 80px;
-      }
-    }
-    
-    .phone-illustration {
-      width: 250px;
-      height: 500px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .phone-screen {
-      padding: 20px;
-      height: 100%;
-      background: linear-gradient(180deg, #1C7F4E, #00B37E);
-      color: white;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .greenscore-content h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #0F172A;
-    }
-    
-    .greenscore-content p {
-      font-size: 16px;
-      color: #475569;
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;border:1px solid transparent;padding:10px 16px;font-weight:600;cursor:pointer;transition:.15s ease}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-hover)}
+    .btn-secondary{background:#fff;border-color:var(--border)}
+    .btn-secondary:hover{background:#F3F4F6}
+    .btn-ghost{background:transparent;border-color:var(--border)}
+    .btn-ghost:hover{background:#F9FAFB}
 
-    /* Team Section */
-    .team-section {
-      background: #F8FAFC;
-    }
-    
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    
-    .team-member {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-    }
-    
-    .team-member:hover {
-      transform: translateY(-4px);
-    }
-    
-    .member-photo {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #C6F7D0, #00B37E);
-      position: relative;
-    }
-    
-    .member-info {
-      padding: 20px;
-      text-align: center;
-    }
-    
-    .member-info h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #0F172A;
-    }
-    
-    .member-info p {
-      font-size: 14px;
-      color: #475569;
-      margin: 0;
-    }
+    .chip{border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
+    .chip.active,.chip:focus{outline:2px solid var(--primary);outline-offset:2px}
 
-    /* Footer */
-    .footer {
-      background: #0F172A;
-      color: white;
-      padding: 60px 0 40px;
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    
-    .footer-section h4 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: white;
-    }
-    
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-    
-    .footer-links a {
-      color: #94A3B8;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-    
-    .footer-links a:hover {
-      color: #00B37E;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 16px;
-    }
-    
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      background: #1E293B;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #94A3B8;
-      transition: all 0.2s;
-    }
-    
-    .social-links a:hover {
-      background: #00B37E;
-      color: white;
-    }
-    
-    .footer-bottom {
-      border-top: 1px solid #1E293B;
-      padding-top: 20px;
-      font-size: 12px;
-      color: #64748B;
-      text-align: center;
-    }
+    .chat-fab{position:fixed;right:20px;bottom:20px;background:var(--primary);color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:700;box-shadow:var(--shadow);cursor:pointer}
+    .chat-fab:hover{background:var(--primary-hover)}
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-content {
-        text-align: center;
-      }
-      
-      .hero-cta {
-        justify-content: center;
-      }
-      
-      .payment-grid,
-      .movement-grid,
-      .cards-grid,
-      .greenscore-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .modal[hidden]{display:none}
+    .modal{position:fixed;inset:0;display:grid;place-items:center;z-index:2000}
+    .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.4)}
+    .modal-content{position:relative;background:#fff;border-radius:16px;box-shadow:var(--shadow);width:min(92vw,920px);max-height:86vh;display:flex;flex-direction:column}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border)}
+    .icon-btn{background:transparent;border:1px solid var(--border);border-radius:8px;padding:6px 8px;cursor:pointer}
+    .modal-body{padding:16px;overflow:auto}
+    .chatbot-placeholder{border:2px dashed var(--border);border-radius:12px;padding:18px;color:var(--muted);min-height:320px;display:grid;place-items:center}
 
-    /* Chat Widget Styles - Preserving Original Functionality */
-    .chat-fab {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 100;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1C7F4E, #00B37E);
-      border: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 22px;
-      box-shadow: 0 12px 24px rgba(28, 127, 78, 0.35);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    
-    .chat-fab:hover {
-      transform: scale(1.05);
-    }
-
-    /* N8N Chat Integration Styles */
-    :root {
-      --chat--color-primary: #1C7F4E !important;
-      --chat--color-primary-shade-50: #176B42 !important;
-      --chat--color-primary-shade-100: #145C38 !important;
-      --chat--color-secondary: #0F172A !important;
-      --chat--color-secondary-shade-50: #1E293B !important;
-      --chat--color-white: #ffffff !important;
-      --chat--color-light: #F7FAF8 !important;
-      --chat--color-light-shade-50: #E2E8F0 !important;
-      --chat--color-light-shade-100: #CBD5E1 !important;
-      --chat--color-medium: #D2D4D9 !important;
-      --chat--color-dark: #0F172A !important;
-      --chat--color-disabled: #94A3B8 !important;
-      --chat--color-typing: #404040 !important;
-      --chat--spacing: 1rem !important;
-      --chat--border-radius: 0.75rem !important;
-      --chat--transition-duration: 0.2s !important;
-      --chat--window--width: 420px !important;
-      --chat--window--height: 620px !important;
-      --chat--header-height: auto !important;
-      --chat--header--padding: var(--chat--spacing) !important;
-      --chat--header--background: var(--chat--color-primary) !important;
-      --chat--header--color: var(--chat--color-white) !important;
-      --chat--heading--font-size: 1.25rem !important;
-      --chat--subtitle--font-size: 0.95rem !important;
-      --chat--subtitle--line-height: 1.6 !important;
-      --chat--textarea--height: 52px !important;
-      --chat--message--font-size: 1rem !important;
-      --chat--message--padding: var(--chat--spacing) !important;
-      --chat--message--border-radius: var(--chat--border-radius) !important;
-      --chat--message-line-height: 1.6 !important;
-      --chat--message--bot--background: var(--chat--color-white) !important;
-      --chat--message--bot--color: var(--chat--color-dark) !important;
-      --chat--message--bot--border: 1px solid var(--chat--color-light-shade-50) !important;
-      --chat--message--user--background: var(--chat--color-primary) !important;
-      --chat--message--user--color: var(--chat--color-white) !important;
-      --chat--message--user--border: none !important;
-      --chat--message--pre--background: rgba(0,0,0,.05) !important;
-      --chat--toggle--background: var(--chat--color-primary) !important;
-      --chat--toggle--hover--background: var(--chat--color-primary-shade-50) !important;
-      --chat--toggle--active--background: var(--chat--color-primary-shade-100) !important;
-      --chat--toggle--color: var(--chat--color-white) !important;
-      --chat--toggle--size: 56px !important;
-      --chat--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial !important;
-    }
-
-    .n8n-chat, .n8n-chat *, [data-n8n-chat-root], [data-n8n-chat-root] * {
-      font-family: var(--chat--font-family) !important;
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .comparison{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="nav-container">
-      <div class="logo">zero</div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#sustainability">Sustainability</a>
-        <a href="#carbon-projects">Carbon Projects</a>
-        <a href="#blog">Blog</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#contact">Contact us</a>
-      </nav>
-      <button class="sign-up-btn">Sign up</button>
-    </div>
-  </header>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+<div class="container nav">
+<div class="brand">
+<span aria-label="Avantisea" class="logo">Avantisea</span>
+</div>
+<nav aria-label="Primary" class="site-nav" role="navigation">
+<ul>
+<li><a href="#why">Why Avantisea</a></li>
+<li><a href="#for-everyone">For Everyone</a></li>
+<li><a href="#find-jobs">Find Jobs</a></li>
+<li><a href="#employers">Employers</a></li>
+<li><a href="#faq">FAQs</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-copy">
+<h1>Unlock Talent. Unleash Potential.</h1>
+<p class="subhead">Avantisea helps young people and employers meet through a fun, swipe-based experience. Whether you’re looking for your first step or your next big move, the journey is fast, fair, and effortless.</p>
+<div class="cta-row">
+<a class="btn btn-primary" href="#find-jobs">Get Started</a>
+<a class="btn btn-ghost" href="#why">Why Avantisea</a>
+</div>
+<div aria-labelledby="age-label" class="age-select">
+<label for="age" id="age-label">Choose Your Age<span aria-hidden="true">*</span>:</label>
+<div aria-label="Age ranges" class="age-buttons" role="group">
+<button class="chip" data-age="18-24">18–24</button>
+<button class="chip" data-age="25-34">25–34</button>
+<button class="chip" data-age="35-plus">35+</button>
+</div>
+</div>
+</div>
+<div aria-label="Abstract illustration representing talent matching" class="hero-visual" role="img"></div>
+</div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Your Money Your Planet</h1>
-        <p>The sustainable alternative to banking with free money app, personal account, debit Mastercard, GreenScore and more.</p>
-        <div class="hero-cta">
-          <button class="btn-primary">Sign up</button>
-        </div>
-        <div class="trustpilot">
-          <span class="stars">★★★★★</span>
-          <span>Excellent 4.6 out of 5</span>
-          <span>Rated Excellent. 4.6 out of 5 on Trustpilot</span>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="new-badge">NEW</div>
-        <h3>GreenScore® insights</h3>
-        <p>Understand lifestyle impact on climate and find easy, affordable ways to reduce it.</p>
-        <p style="font-size: 14px; color: #64748B; margin: 0;">Instant notifications, strong security, and fee-free payments in any currency.</p>
-      </div>
-    </div>
-  </section>
+<footer class="site-footer" role="contentinfo">
+<div class="container footer-grid">
+<div>
+<strong>Avantisea</strong>
+<p class="muted">Unlock Talent. Unleash Potential.</p>
+</div>
+<nav aria-label="Footer">
+<ul>
+<li><a href="#why">Why Avantisea</a></li>
+<li><a href="#for-everyone">For Everyone</a></li>
+<li><a href="#employers">Employers</a></li>
+<li><a href="#faq">FAQs</a></li>
+</ul>
+</nav>
+<div class="legal">
+<p>© <span id="year"></span> Avantisea. All rights reserved.</p>
+</div>
+</div>
+</footer>
 
-  <!-- Climate Change Section -->
-  <section class="section climate-section">
-    <div class="container">
-      <h2 class="section-title">Where you put your money matters…</h2>
-      <p class="section-subtitle">
-        We're the last generation who can save the planet from climate disaster. The way most banks use your money is contributing to climate change. Zero is different.
-      </p>
-      <span class="highlight">This is Zero.</span>
-      <button class="btn-primary" style="margin-top: 24px;">Sign up</button>
-      
-      <div class="certifications">
-        <div class="cert-badge">B</div>
-        <div class="cert-badge">1%</div>
-        <div class="cert-badge">BE100</div>
-        <div class="cert-badge">CDP</div>
-        <div class="cert-badge">FSC</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GreenScore Section -->
-  <section class="section greenscore-section">
-    <div class="container">
-      <div class="greenscore-grid">
-        <div class="phone-illustration">
-          <div class="phone-screen">
-            <div style="text-align: center; margin-top: 40px;">
-              <h3>GreenScore</h3>
-              <div style="font-size: 48px; font-weight: 800; margin: 20px 0;">385</div>
-              <p style="font-size: 14px; opacity: 0.8;">out of 500</p>
-            </div>
-          </div>
-        </div>
-        <div class="greenscore-content">
-          <h2>Your sustainable life</h2>
-          <p>Through our GreenScore®, we will help you understand which elements of your lifestyle may be contributing to climate change and offer you easy affordable ways to reduce your impact.</p>
-          <button class="btn-primary">Sign up</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="section features-section">
-    <div class="container">
-      <h2 class="section-title">Features of our service</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon">📱</div>
-          <div class="feature-content">
-            <h3>Zero Debit Mastercard® and App.</h3>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🐷</div>
-          <div class="feature-content">
-            <h3>Top-up your account easily in our app using open banking</h3>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🌍</div>
-          <div class="feature-content">
-            <h3>Pay anywhere, any currency, zero fees, zero commission.</h3>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🔔</div>
-          <div class="feature-content">
-            <h3>Instant phone notification as soon as you pay.</h3>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🛡️</div>
-          <div class="feature-content">
-            <h3>High security and fraud protection built-in.</h3>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">💰</div>
-          <div class="feature-content">
-            <h3>Free cash withdrawals. Limits apply.</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Carbon Projects Section -->
-  <section class="section carbon-section">
-    <div class="container">
-      <div class="new-badge" style="background: rgba(255, 255, 255, 0.2); color: white;">NEW FEATURE</div>
-      <h2 class="section-title">zero | Carbon Projects</h2>
-      <p class="section-subtitle">
-        Offset your carbon footprint by contributing to Zero Carbon Projects. Any contributions made will support the initiatives we have carefully curated and will also improve your GreenScore®.
-      </p>
-      <div class="carbon-cta">
-        <button class="btn-white">Download App</button>
-        <button class="btn-outline-white">Learn More</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apple Pay & Google Pay Section -->
-  <section class="section payment-methods">
-    <div class="container">
-      <div class="payment-grid">
-        <div class="payment-method">
-          <h2>Introducing Apple Pay</h2>
-          <p>Apple Pay is an easy, secure, and private way to pay. Now available on your Apple devices.</p>
-          <div class="payment-logos">
-            <span class="logo-text">zero</span>
-            <span class="divider">|</span>
-            <span class="apple-pay">🍎 Pay</span>
-          </div>
-          <button class="btn-secondary">Learn more</button>
-        </div>
-        <div class="phone-mockup">
-          <!-- Phone illustration would go here -->
-        </div>
-      </div>
-      
-      <div class="payment-grid" style="margin-top: 80px;">
-        <div class="payment-method">
-          <h2>Make contactless payments with Google Pay ™</h2>
-          <p>Pay with your phone anywhere contactless payments are accepted. Just unlock it, hold it to the reader and go.</p>
-          <div class="payment-logos">
-            <span class="logo-text">zero</span>
-            <span class="divider">|</span>
-            <span class="google-pay">G Pay</span>
-          </div>
-        </div>
-        <div class="phone-mockup">
-          <!-- Phone illustration would go here -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Join Movement Section -->
-  <section class="section movement-section">
-    <div class="container">
-      <div class="movement-grid">
-        <div class="city-illustration"></div>
-        <div>
-          <h2 class="section-title" style="text-align: left;">Join the movement</h2>
-          <p class="section-subtitle" style="text-align: left; margin-bottom: 32px;">
-            Zero is a community whose combined effort will make a big impact on climate change. And you won't only be helping to save the planet, we're setting aside 20% of the company for you, our community, for free, so that you'll share in the value of the business we create.
-          </p>
-          <button class="btn-primary">Sign up</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cards Section -->
-  <section class="section cards-section">
-    <div class="container">
-      <div class="cards-grid">
-        <div class="cards-content">
-          <h2>Sea, Land or Sky? The choice is yours</h2>
-          <ul class="cards-features">
-            <li>Sustainably produced from 95% recycled plastic</li>
-            <li>Accessible card with rounded notch</li>
-            <li>Contactless payment worldwide</li>
-          </ul>
-          <div class="card-selector">
-            <button class="card-option active" data-theme="land">Land</button>
-            <button class="card-option" data-theme="sea">Sea</button>
-            <button class="card-option" data-theme="sky">Sky</button>
-          </div>
-          <button class="btn-primary">Sign up</button>
-        </div>
-        <div class="card-preview">
-          <div class="card-mockup card-land" id="activeCard">
-            <div class="card-chip"></div>
-            <div>
-              <div class="card-logo">Your Money<br>Your Planet<br>zero</div>
-            </div>
-            <div class="mastercard-logo"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="section team-section">
-    <div class="container">
-      <h2 class="section-title">Our Team</h2>
-      <p class="section-subtitle">
-        Zero was founded by an experienced team from the world of fintech, banking & sustainability supported by a talented team of people who share our passion.
-      </p>
-      <div class="team-grid">
-        <div class="team-member">
-          <div class="member-photo"></div>
-          <div class="member-info">
-            <h3>Richard Theo</h3>
-            <p>CEO</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-photo"></div>
-          <div class="member-info">
-            <h3>Lisa Stanley</h3>
-            <p>Chief Sustainability Officer</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-photo"></div>
-          <div class="member-info">
-            <h3>Kate Hodge</h3>
-            <p>Chief Product Officer</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="member-photo"></div>
-          <div class="member-info">
-            <h3>Paul Ellis</h3>
-            <p>Chair of the Board</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="logo" style="color: white; margin-bottom: 20px;">zero</div>
-          <h4>Sign up for Zero</h4>
-          <p style="color: #94A3B8; font-size: 14px;">
-            To sign up for Zero you need to download and install our app. Details of how to do this are on a dedicated page on this website which you can get to by clicking the Sign Up button below.
-          </p>
-          <button class="btn-primary" style="margin-top: 16px;">Sign up</button>
-        </div>
-        <div>
-          <h4>Quick links</h4>
-          <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Complaints Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Fees and charges</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Fraud awareness</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Follow us</h4>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="LinkedIn">💼</a>
-            <a href="#" aria-label="TikTok">🎵</a>
-            <a href="#" aria-label="Twitter">🐦</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2024 Zero Fintech Ltd. All rights reserved. Zero® is a service provided by Zero Fintech Ltd, registered in England & Wales company number 13818217. Authorised and regulated by the FCA.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- N8N Chat Integration - Preserving Original Functionality -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">
-  
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    
-    createChat({
-      webhookUrl: 'https://rounakdas2.app.n8n.cloud/webhook/7e716c4c-34db-4f83-bd21-6deeca6b64c1/chat',
-      webhookConfig: {
-        method: 'POST',
-        headers: {},
-      },
-      target: '#n8n-chat',
-      mode: 'window',
-      chatInputKey: 'chatInput',
-      chatSessionKey: 'sessionId',
-      loadPreviousSession: true,
-      metadata: {},
-      showWelcomeScreen: false,
-      defaultLanguage: 'en',
-      initialMessages: [
-        "Hi! I'm Zero's AI assistant. We're the sustainable banking alternative where your money helps the planet, not harms it. I can help with:\n\n• GreenScore® — reducing your carbon footprint\n• Zero fees debit card & banking features\n• Carbon Projects to offset your impact\n• Getting started with sustainable banking\n\nWhat would you like to know?"
-      ],
-      i18n: {
-        'en': {
-          'title': 'Zero Banking Assistant',
-          'subtitle': 'Banking that puts the planet first',
-          'footer': '',
-          'getStarted': 'New Conversation',
-          'inputPlaceholder': 'Type here to get started!',
-        },
-      },
-      enableStreaming: false,
+<script>
+(function(){
+  const y=document.getElementById('year');
+  if(y)y.textContent=new Date().getFullYear();
+  document.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
     });
-  </script>
+  });
+})();
+</script>
 
-  <div id="n8n-chat"></div>
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet"/>
+<style id="avantisea-chat-theme">
+:root{
+  --chat--color-primary:#1F4ED6;
+  --chat--color-primary-shade-50:#1b46c1;
+  --chat--color-primary-shade-100:#163EA9;
+  --chat--color-secondary:#10B981;
+  --chat--color-secondary-shade-50:#0EA371;
+  --chat--color-white:#FFFFFF;
+  --chat--color-light:#F8FAFC;
+  --chat--color-light-shade-50:#EEF2F7;
+  --chat--color-light-shade-100:#E5E7EB;
+  --chat--color-medium:#CBD5E1;
+  --chat--color-dark:#111827;
+  --chat--color-disabled:#6B7280;
+  --chat--color-typing:#374151;
+  --chat--spacing:1rem;
+  --chat--border-radius:14px;
+  --chat--transition-duration:0.18s;
+  --chat--window--width:420px;
+  --chat--window--height:580px;
+  --chat--header-height:auto;
+  --chat--header--padding:calc(var(--chat--spacing)*0.9);
+  --chat--header--background:var(--chat--color-white);
+  --chat--header--color:var(--chat--color-dark);
+  --chat--header--border-bottom:1px solid var(--chat--color-light-shade-100);
+  --chat--heading--font-size:1.125rem;
+  --chat--subtitle--font-size:0.95rem;
+  --chat--textarea--height:52px;
+  --chat--message--font-size:1rem;
+  --chat--message--padding:calc(var(--chat--spacing)*0.9);
+  --chat--message--border-radius:var(--chat--border-radius);
+  --chat--message-line-height:1.7;
+  --chat--message--bot--background:var(--chat--color-white);
+  --chat--message--bot--color:var(--chat--color-dark);
+  --chat--message--bot--border:1px solid var(--chat--color-light-shade-100);
+  --chat--message--user--background:var(--chat--color-primary);
+  --chat--message--user--color:var(--chat--color-white);
+  --chat--toggle--background:var(--chat--color-primary);
+  --chat--toggle--hover--background:var(--chat--color-primary-shade-50);
+  --chat--toggle--active--background:var(--chat--color-primary-shade-100);
+  --chat--toggle--color:var(--chat--color-white);
+  --chat--toggle--size:56px;
+}
+.n8n-chat-window,.n8n-chat-toggle-button{
+  border-radius:14px!important;
+  box-shadow:0 10px 30px rgba(17,24,39,0.08)!important;
+}
+.n8n-chat-input{
+  background:var(--chat--color-light)!important;
+  border-top:1px solid var(--chat--color-light-shade-100)!important;
+}
+</style>
 
-  <script>
-    // Card theme toggle functionality
-    document.querySelectorAll('.card-option').forEach(option => {
-      option.addEventListener('click', function() {
-        // Remove active class from all options
-        document.querySelectorAll('.card-option').forEach(opt => {
-          opt.classList.remove('active');
-        });
-        
-        // Add active class to clicked option
-        this.classList.add('active');
-        
-        // Update card preview
-        const theme = this.dataset.theme;
-        const activeCard = document.getElementById('activeCard');
-        
-        // Remove all theme classes
-        activeCard.classList.remove('card-land', 'card-sea', 'card-sky');
-        
-        // Add the selected theme class
-        activeCard.classList.add(`card-${theme}`);
-      });
-    });
-  </script>
+<style id="avantisea-chat-header-blue-bg">
+:root{
+  --chat--header--background:linear-gradient(135deg,#1F4ED6 0%,#315EF3 100%)!important;
+  --chat--header--color:#ffffff!important;
+}
+.n8n-chat-header{
+  background:linear-gradient(135deg,#1F4ED6 0%,#315EF3 100%)!important;
+  color:#ffffff!important;
+}
+</style>
+
+<script type="module">
+import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+createChat({
+  webhookUrl:'https://rounakdas2.app.n8n.cloud/webhook/4a7e7417-ba79-493d-a267-18edd1b0e65e/chat',
+  i18n:{
+    en:{
+      title:'Avantisea AI Assistant',
+      subtitle:'Connecting Talent With Purpose',
+      footer:'',
+      getStarted:'New Conversation',
+      inputPlaceholder:'Type here to get started!',
+      initialMessages:[
+        "Hi! I’m Avantisea’s AI assistant — here to connect talent with purpose. 🌊",
+        "Whether you’re a professional ready to showcase your skills or a company looking for exceptional talent, I can help you with:\n• Creating or optimizing your profile\n• Posting and managing job listings\n• Learning how Avantisea promotes fair, modern hiring\n\nWhat would you like me to help with?"
+      ]
+    },
+  },
+  enableStreaming:false
+});
+</script>
 </body>
 </html>
